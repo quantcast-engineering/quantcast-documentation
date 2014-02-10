@@ -41,7 +41,7 @@ git submodule update --init
 
 1.	Import the Quantcast SDK code into your project.  In Xcode, select your project and choose the option “Add Files to <Your Project Name>“, then select the Quantcast-iOS-Measurement folder from your download.
 
-	![Screenshot - Add Files to Project](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image001.png "Add Files to Project")
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image001.png" alt="Screenshot - Add Files to Project" style="width: 700px;"/>
 
 2.	Link the following iOS frameworks and libraries to your project if they are not already.  From your project properties, go to the “General” section, the scroll down to “Linked Frameworks and Libraries” and hit the “+” at the bottom left.  Then use the Command key to multiselect and add the following:
 	*	`AdSupport`
@@ -53,12 +53,12 @@ git submodule update --init
 	*	`SystemConfiguration`
 	*	`UIKit`
 
-	![Screenshot - Add Frameworks and Libraries](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image002.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image002.png" alt="Screenshot - Add Frameworks and Libraries" style="width: 700px;"/>
 
 3.	Make the following iOS framework optional (weak link): 
 	*	`AdSupport`
 
-	![Screenshot - Make Linking Optional](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image005.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image005.png" alt="Screenshot - Make Linking Optional" style="width: 700px;"/>
 
 #### Supporting Automatic Reference Counting (ARC) ####
 
@@ -66,15 +66,15 @@ If your project uses automatic reference counting (ARC), take the following step
 
 1.	In your project configuration screen, click on the “Build Phases” section, then expand “Compile Sources”.  
 
-	![Screenshot - Expand Compile Sources](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image007.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image007.png" alt="Screenshot - Expand Compile Sources" style="width: 700px;"/>
 
 2.	Multi-select every Quantcast source file by holding down the Command button and choosing every filename that begins with “Quantcast”. 
 
-	![Screenshot - Multi-select Quantcast Files](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image009.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image009.png" alt="Screenshot - Multi-select Quantcast Files" style="width: 700px;"/>
 
 3.	Hit enter to bring up a text input box, then type in “–fno-obj-arc” and hit enter. 
 
-	![Screenshot - Set Compile Flag](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image011.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image011.png" alt="Screenshot - Set Compile Flag" style="width: 700px;"/>
 
 #### Supporting iOS 4.3-4.6 ####
 
@@ -89,7 +89,7 @@ If you intend to support iOS 4.3 - 4.6, perform these additional steps. Otherwis
 	#define QCMEASUREMENT_ENABLE_JSONKIT 1
 	```
 	
-	![Screenshot - Enable JSONKIT](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image015.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image015.png" alt="Screenshot - Enable JSONKIT" style="width: 700px;"/>
 
 ### SDK Integration ###
 
@@ -101,7 +101,7 @@ The recommended way to integrate the Quantcast SDK requires only a single line o
 	#import "QuantcastMeasurement.h"
 	```
 
-	![Screenshot - Import Header](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image017.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image017.png" alt="Screenshot - Import Header" style="width: 700px;"/>
 
 2.	In your `UIApplication` delegate's `application:didFinishLaunchingWithOptions:` method, place the following:
 
@@ -116,7 +116,7 @@ userIdentifier:nil labels:nil];
 
 	The `labels:` parameter may be nil and is used to create Audience Segments.  Learn more in the [Audience Labels](#audience-labels) section.
 
-	![Screenshot - SetupMeasurement](https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image019.png)
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image019.png" alt="Screenshot - SetupMeasurement" style="width: 700px;"/>
 
 #### (optional) Understanding the API Key ####
 The API key is used as the basic reporting entity for Quantcast Measure. The same API Key can be used across multiple apps (i.e. AppName Free / AppName Paid) and/or app platforms (i.e. iOS / Android). For all apps under each unique API Key, Quantcast will report the aggregate audience among them all, and also identify/report on the individual app versions.
@@ -304,4 +304,4 @@ If you have are still having trouble, please email mobilesupport@quantcast.com.
 
 
 ## License ##
-This Quantcast Measurement SDK is Copyright 2012 Quantcast Corp. This SDK is licensed under the Quantcast Mobile App Measurement Terms of Service, found at [the Quantcast website here](https://www.quantcast.com/learning-center/quantcast-terms/mobile-app-measurement-tos "Quantcast's Measurement SDK Terms of Service") (the "License"). You may not use this SDK unless (1) you sign up for an account at [Quantcast.com](https://www.quantcast.com "Quantcast.com") and click your agreement to the License and (2) are in compliance with the License. See the License for the specific language governing permissions and limitations under the License.
+This Quantcast Measurement SDK is Copyright 2012-2014 Quantcast Corp. This SDK is licensed under the Quantcast Mobile App Measurement Terms of Service, found at [the Quantcast website here](https://www.quantcast.com/learning-center/quantcast-terms/mobile-app-measurement-tos "Quantcast's Measurement SDK Terms of Service") (the "License"). You may not use this SDK unless (1) you sign up for an account at [Quantcast.com](https://www.quantcast.com "Quantcast.com") and click your agreement to the License and (2) are in compliance with the License. See the License for the specific language governing permissions and limitations under the License. Unauthorized use of this file constitutes copyright infringement and violation of law.
