@@ -146,7 +146,7 @@ You can give users the option to opt out of Quantcast Measure by providing acces
 		
 The `currentViewController` argument is the current view controller. The SDK needs to know this due to how the iOS SDK presents modal dialogs (see [Apple's documentation](http://developer.apple.com/library/ios/#documentation/uikit/reference/UIViewController_Class/Reference/Reference.html) for `presentViewController:animated:completion:`). The delegate is an optional parameter and is explained in the `QuantcastOptOutDelegate` protocol header.
 	
-If you would like to provide your own custom control over the Quantcast's opt out process.  It is also possible to set the opt out preference by setting the isOptedOut property directly instead of using the default dialog. For example:
+If you would like to provide your own custom control over the Quantcast's opt out process, it is possible to set the opt out preference by setting the isOptedOut property directly instead of using the default dialog. For example:
 ```objective-c
 [QuantcastMeasurement sharedInstance].isOptedOut = YES;
 ```
