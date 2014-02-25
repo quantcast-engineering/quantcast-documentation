@@ -60,9 +60,9 @@ git submodule update --init
 
     <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image005.png" alt="Screenshot - Make Linking Optional" style="width: 700px;"/>
 
-#### Supporting Automatic Reference Counting (ARC) ####
+#### Supporting non Automatic Reference Counting (ARC) ####
 
-If your project uses automatic reference counting (ARC), take the following steps to set a compiler flag for Quantcast source files. Otherwise, skip to the next section.
+If your project does not use automatic reference counting (ARC), take the following steps to set a compiler flag for Quantcast source files. Otherwise, skip to the next section.
 
 1.	In your project configuration screen, click on the “Build Phases” section, then expand “Compile Sources”.  
 
@@ -72,9 +72,9 @@ If your project uses automatic reference counting (ARC), take the following step
 
     <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image009.png" alt="Screenshot - Multi-select Quantcast Files" style="width: 700px;"/>
 
-3.	Hit enter to bring up a text input box, then type in “–fno-obj-arc” and hit enter. 
+3.	Hit enter to bring up a text input box, then type in “–fobjc-arc” and hit enter. 
 
-    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image011.png" alt="Screenshot - Set Compile Flag" style="width: 700px;"/>
+    <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image012.png" alt="Screenshot - Set Compile Flag" style="width: 700px;"/>
 
 #### Supporting iOS 4.3-4.6 ####
 
@@ -138,7 +138,7 @@ Congratulations! Now that you’ve completed basic integration, explore how you 
 Quantcast believes in informing users of how their data is being used.  We recommend that you disclose in your privacy policy that you use Quantcast to understand your audiences. You may link to Quantcast's privacy policy: [https://www.quantcast.com/privacy](https://www.quantcast.com/privacy).
 
 #### User Opt-Out ####
-You can give users the option to opt out of Quantcast Measure by providing access to the Quantcast Measure Opt-Out dialog. This should be accomplished with a button or a table view cell (if your options are based on a grouped table view) in your app's options view with the title "Measurement Options" or "Privacy". When a user taps the button you provide, call the Quantcast’s Opt-Out dialog using the following method:
+You can give users the option to opt out of Quantcast Measure by providing access to the Quantcast Measure Opt-Out dialog. This should be accomplished with a button or a table view cell (if your options are based on a grouped table view) in your app's options view with the title "Measurement Options" or "Privacy". When a user taps the button you provide, call the Quantcast’s default Opt-Out dialog using the following method:
 
 ```objective-c
 [[QuantcastMeasurement sharedInstance] displayUserPrivacyDialogOver:currentViewController withDelegate:nil];
@@ -146,6 +146,15 @@ You can give users the option to opt out of Quantcast Measure by providing acces
 		
 The `currentViewController` argument is the current view controller. The SDK needs to know this due to how the iOS SDK presents modal dialogs (see [Apple's documentation](http://developer.apple.com/library/ios/#documentation/uikit/reference/UIViewController_Class/Reference/Reference.html) for `presentViewController:animated:completion:`). The delegate is an optional parameter and is explained in the `QuantcastOptOutDelegate` protocol header.
 	
+If you would like to provide your own custom control over the Quantcast's opt out process.  It is also possible to set the opt out preference by setting the isOptedOut property directly instead of using the default dialog. For example:
+```objective-c
+[QuantcastMeasurement sharedInstance].isOptedOut = YES;
+```
+When not using the default dialog we strongly recommend that you also have a button to display Quantcast's Privacy Policy.  You can display this by calling:
+```objective-c
+[[QuantcastMeasurement sharedInstance] displayQuantcastPrivacyPolicy]; 
+```
+
 Note: when a user opts out of Quantcast Measure, the SDK immediately stops transmitting information to or from the user's device and deletes any cached information that may have retained. 
 
 ### Optional Code Integrations ###
