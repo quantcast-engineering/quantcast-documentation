@@ -60,7 +60,7 @@ git submodule update --init
 
     <img src="https://raw.github.com/quantcast-engineering/quantcast-documentation/master/ios/images/image005.png" alt="Screenshot - Make Linking Optional" style="width: 700px;"/>
 
-#### Supporting non Automatic Reference Counting (ARC) ####
+#### If You Are Not Using Automatic Reference Counting (ARC) ####
 
 If your project does not use automatic reference counting (ARC), take the following steps to set a compiler flag for Quantcast source files. Otherwise, skip to the next section.
 
