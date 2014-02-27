@@ -8,7 +8,6 @@ This implementation guide provides steps for integrating the Quantcast Measure f
 * **Attract Advertising** – Attract advertisers by showcasing your most powerful data points using a trusted source. 
 
 If you have any implementation questions, please email mobilesupport@quantcast.com. We're here to help.
-## Integrating Quantcast Measure for Mobile Apps ##
 
 Integrating Quantcast Measure for Mobile Apps
 ---------------------------------------------
@@ -76,7 +75,7 @@ Note: for the `android update project` command described in the guide be sure to
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     ```
     
-    Optionally, adding WAKE_LOCK permissions will insure that analytic data will have time to be sent to the server no matter the device.  The SDK will only takes a lock if needed and will immediately release the lock if not in use in order to insure no unnessicary battery drain.  
+    Optionally, adding WAKE_LOCK permissions will insure that analytic data will have time to be sent to the server no matter the device.  The SDK will only takes a lock if needed and will immediately release the lock if not in use in order to insure no unnecessary battery drain.  
     ``` xml
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     ```    
@@ -103,7 +102,7 @@ Note: for the `android update project` command described in the guide be sure to
 	
 	The `userIdentifier` parameter is a `String` that uniquely identifies an individual user, such as an account login. This should not be confused with a unique device identifier. Passing this information allows Quantcast to provide reports on your combined audience across all your properties: online, mobile web and mobile app. This parameter may be `null` if your app does not have a user identifier. If the user identifier is not known at the time the `onCreate()` method is called, the user identifier can be recorded at a later time. Please see the [Combined Web/App Audiences](#combined-webapp-audiences) section for more information.
     
-    The `segments` parameter may be nil and is discussed in more detail in the [Event Labels](#event-labels) section under Optional Code Integrations.
+    The `segments` parameter may be nil and is discussed in more detail in the [Audience Labels](#audience-labels) section under Optional Code Integrations.
 	
 4.	In the `onStop()` method of **_every_** `Activity` in your project place the following :
 
@@ -128,7 +127,7 @@ Congratulations! Now that you’ve completed basic integration, explore how you 
 ### User Privacy ###
 
 #### Privacy Notification ####
-Quantcast believes in informing users of how their data is being used.  We recommend that you disclose in your privacy policy that you use Quantcast to understand your audiences. You may link to Quantcast's privacy policy [here](https://www.quantcast.com/privacy).
+Quantcast believes in informing users of how their data is being used.  We recommend that you disclose in your privacy policy that you use Quantcast to understand your audiences. You may link to Quantcast's privacy policy: [https://www.quantcast.com/privacy](https://www.quantcast.com/privacy).
 
 #### User Opt-Out ####
 
@@ -232,8 +231,7 @@ QuantcastClient.newDeduplicatedWebView(this);
 
 This will return a Webview specially tagged to stop duplications.   If you need to extend a webview you can also extend `QCDeduplicatedWebView` instead of a normal WebView.
 
-#### Digital Magazine and Periodical Measurement ####
-
+#### Digital Magazines and Periodicals ####
 Quantcast Measure provides measurement features specific to digital magazines and periodicals. These options allow the measurement of specific issues, articles and pages in addition to the general measurement of the app hosting the magazine. In order to take advantage of this measurement, you must at a minimum tag when a particular issue has been opened and closed and when each page in that issue has been viewed (in addition to the basic SDK integration). You may also optionally tag when a particular article has been viewed. For more information, please refer to the documentation in the source file which can be found in the SDK source folder at optional-src/QCPeriodical.java.
 
 #### Network/Platform Measurement ####
