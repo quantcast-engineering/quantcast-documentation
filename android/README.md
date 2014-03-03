@@ -110,6 +110,10 @@ Note: for the `android update project` command described in the guide be sure to
 	QuantcastClient.activityStop();
 	```
 
+#### Using Android Advertising ID ####
+[Android advertising ID](https://developer.android.com/google/play-services/id.html) is a user specific, unique, anonymous identifier that was recently released as a new Google service.  Because it enables greater user privacy, we strongly recommend that it be used whenever available.  Please follow the [Google Play Setup Instructions](https://developer.android.com/google/play-services/setup.html) to link to Google Play and enable the Quantcast SDK to use the advertising ID.   On devices that support the advertising ID, the Quantcast SDK will no longer collect the Android device ID.    
+
+
 #### (optional) Understanding the API Key ####
 The API key is used as the basic reporting entity for Quantcast Measure. The same API Key can be used across multiple apps (i.e. AppName Free / AppName Paid) and/or app platforms (i.e. iOS / Android). For all apps under each unique API Key, Quantcast will report the aggregate audience among them all, and also identify/report on the individual app versions.
 
@@ -204,7 +208,7 @@ You also must add either of the following permissions to gather more information
 	
 ``` xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 ```
     
 Note: only enable geo-tracking if your app has some location-aware purpose.
